@@ -2,7 +2,7 @@
 
 A lightweight Pomodoro timer Chrome extension with a built-in to-do list to help boost your productivity. The timer supports start, pause, and reset functionality, and the to-do list allows adding tasks, marking them complete with a checkmark and strikethrough, and clearing the list.
 
-![Pomodoro Demo](Screenshot 2025-07-20 220550.png)
+![Pomodoro Demo](img/Screenshot 2025-07-20 220550.png)
 
 ## Features
 
