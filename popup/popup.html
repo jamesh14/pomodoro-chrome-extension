@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pomodoro Extension</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+  />
+  <style>
+    body {
+      width: 35rem;
+      padding: 1rem;
+      background-color: white;
+      color: #2d3748;
+      font-family: 'Arial', sans-serif;
+    }
+    #timer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: monospace;
+      font-size: 2.25rem;
+      margin: 0.5rem 0;
+      gap: 0.25rem;
+    }
+    button {
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #start-timer {
+      background-color: #48bb78;
+      color: white;
+    }
+    #start-timer:hover {
+      background-color: #38a169;
+    }
+    #reset-timer {
+      background-color: #f6e05e;
+      color: black;
+    }
+    #reset-timer:hover {
+      background-color: #d69e2e;
+      color: white;
+    }
+    .flex {
+      display: flex;
+    }
+    .justify-center {
+      justify-content: center;
+    }
+    .gap-2 {
+      gap: 0.5rem;
+    }
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+    .w-full {
+      width: 100%;
+    }
+    .text-left {
+      text-align: left;
+    }
+   
+    #todo-container {
+      margin-top: 1rem;
+    }
+    #todo-list {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      font-size: 0.875rem;
+      max-height: 120px;
+      overflow-y: auto;
+      margin-bottom: 0.5rem;
+    }
+    input#todo-field {
+      border: 1px solid #cbd5e0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    #add-todo {
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      flex-grow: 1;
+    }
+    #add-todo:hover {
+      background-color: #3182ce;
+    }
+    #clear-todos {
+      background-color: #f56565;
+      color: white;
+      border: none;
+      margin-left: 0.5rem;
+    }
+    #clear-todos:hover {
+      background-color: #c53030;
+    }
+  </style>
+</head>
+<body>
+  <div id="top-wrapper">
+    <div id="top-container">
+      <h3 style="text-align: center; margin-bottom: 1rem; font-size: 1.8rem;">POMODORO</h3>
+      <div
+        id="timer-container"
+        role="timer"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <h1
+          id="timer-min"
+          contenteditable="true"
+          class="outline-none"
+          aria-label="Minutes"
+          spellcheck="false"
+        >25</h1>
+        <h1>:</h1>
+        <h1 id="timer-sec" aria-label="Seconds">00</h1>
+      </div>
+      <div class="flex justify-center gap-2 mt-2">
+        <button id="start-timer" aria-label="Start Timer" type="button">
+          
+          <svg
+            id="play-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            width="20"
+            height="20"
+            aria-hidden="true"
+          >
+            <path d="M6.5 5.5v9l7-4.5-7-4.5z" />
+          </svg>
+          
+          <svg
+            id="stop-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            width="20"
+            height="20"
+            aria-hidden="true"
+            style="display: none;"
+          >
+            <rect x="6" y="6" width="8" height="8" />
+          </svg>
+        </button>
+        <button id="reset-timer" aria-label="Reset Timer" type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            width="20"
+            height="20"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 4v5h.582a7.002 7.002 0 0011.03 4.93l-1.42-1.42A5.002 5.002 0 016 9H4zm12 6h-2a5.002 5.002 0 01-8.192-3.51l1.42 1.42A7.002 7.002 0 0016 10z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="todo-container">
+    <h4 style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem;">To-Do List</h4>
+    <ul id="todo-list"></ul>
+    <input
+      type="text"
+      id="todo-field"
+      autocomplete="off"
+      placeholder="Add a task..."
+      aria-label="Add a task"
+    />
+    <div class="flex gap-2 mt-1">
+      <button id="add-todo" type="button">Add</button>
+      <button id="clear-todos" type="button">Clear</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

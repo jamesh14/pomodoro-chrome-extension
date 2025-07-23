@@ -1,0 +1,31 @@
+#timer-min[contenteditable="true"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #34d399; 
+  border-radius: 4px;
+}
+
+#bottom-container {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+#todo-list li {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+#todo-list li.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+#todo-field {
+  font-size: 14px;
+  padding: 6px 8px;
+}
+
+button:hover {
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
